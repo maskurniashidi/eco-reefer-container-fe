@@ -1,0 +1,334 @@
+/* -------------- */
+
+.pageTitle {
+  font-style: normal;
+  font-weight: 800;
+  font-size: 24px;
+  color: #0e0071;
+}
+
+.breadcumbs {
+  margin-top: 8px !important;
+}
+
+.breadActive {
+  color: #5c5c5c;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.breadActive:hover {
+  color: #181818;
+}
+
+.breadUnactive {
+  font-weight: 700;
+  color: #181818;
+}
+
+.main {
+  margin-top: 24px;
+}
+
+/* ---------------HEADING---------------- */
+.heading {
+  border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.headingImg {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+}
+
+.headingTitle {
+  width: 60%;
+  color: #fff;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+/* ----------------RESUME---------------- */
+.resume {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.resumeCard {
+  width: 290px;
+  height: 100px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  padding: 24px 16px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.iconresume {
+  width: 50px;
+}
+
+.resumeTitle {
+  font-size: 16;
+  color: #181818;
+  font-weight: 500;
+  margin: 0 !important;
+}
+
+.resumeValue {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 !important;
+}
+
+.mainContent {
+  display: flex;
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* left */
+.leftMain {
+  width: 75%;
+}
+
+/* mid */
+.leftMid {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  padding: 16px 16px;
+}
+
+/* bottom */
+.leftBottom {
+  margin-top: 24px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  padding: 16px 16px;
+}
+
+.controlLeftBottom {
+  margin-top: 16px;
+  width: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  border: 1px solid #d6dfeb;
+  border-radius: 8px;
+}
+
+.titleLeftBottom {
+  font-size: 16px !important;
+  font-weight: 800;
+  color: #121212;
+}
+
+.descLeftBottom {
+  font-size: 16px !important;
+  font-weight: 800;
+  color: #121212;
+  /* background-color: aquamarine; */
+  margin-top: 16px;
+}
+
+.toogle {
+  width: 50px;
+  font-weight: 700;
+}
+
+.setBoxs {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.formField {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.label {
+  color: #212121;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #eeeeee;
+  border-radius: 4px;
+  padding: 8px 8px;
+}
+
+.btnSet {
+  width: 100px;
+  height: 38px;
+  border: none;
+  background-color: #0e0071;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  /* margin-top: 16px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* right */
+.rightMain {
+  width: 25%;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  padding: 16px 16px;
+}
+
+.dayaCards {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.rightTop {
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  padding: 16px 16px;
+  height: 175px;
+  background: linear-gradient(90deg, rgba(18, 70, 153, 1) 0%, rgba(85, 74, 221, 1) 100%);
+}
+
+.rightMid {
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  padding: 16px 16px;
+  height: 175px;
+  background: linear-gradient(90deg, rgba(243, 115, 53, 1) 0%, rgba(253, 200, 48, 1) 100%);
+}
+
+.rightBottom {
+  border-radius: 8px;
+  box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
+  height: 175px;
+  padding: 16px 16px;
+  background: linear-gradient(90deg, rgba(212, 20, 90, 1) 0%, rgba(255, 75, 43, 1) 100%);
+}
+
+.titleRightTop {
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.valueRightTop {
+  font-size: 48px;
+  color: #fff;
+  font-weight: 800;
+}
+
+.value2RightTop {
+  font-size: 24px;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ----------------- */
+
+/* responsive */
+
+@media screen and (max-width: 1480px) {
+  .resumeCard {
+    width: 270px;
+    padding: 24px 16px !important;
+  }
+}
+
+@media screen and (max-width: 1400px) {
+  .resumeCard {
+    width: 230px;
+    padding: 24px 16px !important;
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .valueRightTop {
+    font-size: 36px;
+    color: #fff;
+    font-weight: 800;
+  }
+
+  .value2RightTop {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 700;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .resume {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: start;
+    padding: 24px 4px !important;
+  }
+
+  .resumeCard {
+    width: 270px;
+    padding: 24px 16px !important;
+  }
+}
+
+@media screen and (max-width: 1128px) {
+  .valueRightTop {
+    font-size: 24px;
+    color: #fff;
+    font-weight: 800;
+  }
+
+  .value2RightTop {
+    font-size: 14px;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .rightTop,
+  .rightMid,
+  .rightBottom {
+    height: 150px;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .leftMain {
+    width: 60%;
+  }
+
+  .rightMain {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .resume {
+    justify-content: space-between;
+  }
+}
