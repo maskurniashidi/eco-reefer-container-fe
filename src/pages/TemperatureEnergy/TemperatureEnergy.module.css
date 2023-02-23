@@ -98,7 +98,7 @@
 
 /* left */
 .leftMain {
-  width: 100%;
+  width: 75%;
 }
 
 /* mid */
@@ -107,6 +107,7 @@
   border-radius: 8px;
   box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
   padding: 16px 16px;
+  margin-bottom: 24px;
 }
 
 /* bottom */
@@ -177,12 +178,6 @@
   padding: 8px 8px;
 }
 
-.setCelcius {
-  font-size: 36px;
-  font-weight: 800;
-  margin-bottom: 0px;
-}
-
 .btnSet {
   width: 100px;
   height: 38px;
@@ -200,6 +195,8 @@
 
 /* right */
 .rightMain {
+  width: 25%;
+  max-height: 700px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 1px 6px 0 rgba(49, 53, 59, 0.12);
@@ -320,6 +317,10 @@
   .rightBottom {
     height: 150px;
   }
+
+  .rightMain {
+    max-height: 600px;
+  }
 }
 
 @media screen and (max-width: 720px) {
@@ -332,7 +333,7 @@
   }
 
   .wrapper {
-    width: 900px !important;
+    width: 800px;
   }
 }
 

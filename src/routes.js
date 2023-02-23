@@ -1,6 +1,8 @@
 import { lazy } from "react";
 const Login = lazy(() => import("./pages/Auth/Login/Login"));
+
 const Dashboard = lazy(() => import("./pages/Dashboard/Dashboard"));
+const TemperatureEnergy = lazy(() => import("./pages/TemperatureEnergy/TemperatureEnergy"));
 
 const User = lazy(() => import("./pages/User/User/User"));
 const AddUser = lazy(() => import("./pages/User/AddUser/AddUser"));
@@ -25,6 +27,13 @@ export const APP_ROUTE = [
     path: "/dashboard",
     exact: true,
     component: Dashboard,
+    private: true,
+  },
+  {
+    name: "Temperature Energy",
+    path: "/temperature-energy",
+    exact: true,
+    component: TemperatureEnergy,
     private: true,
   },
   {

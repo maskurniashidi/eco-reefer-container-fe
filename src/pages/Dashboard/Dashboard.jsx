@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Skeleton, Switch, Input } from "antd";
+import { Skeleton, Switch, Input, Carousel } from "antd";
 import { Link } from "react-router-dom";
 import styles from "./Dashboard.module.css";
 import DashboardLayout from "../../layouts/dashboard-layout/DashboardLayout";
@@ -12,19 +12,18 @@ import HEADING from "../../assets/imgs/dashboard-heading.png"
 function Dashboard() {
   const [dataTemp, setDataTemp] = useState([
     {
-      title: "Temperature 1",
-      value: "90 C"
+      title: "Temperature Sensor 1",
     },
     {
-      title: "Temperature 2",
-      value: "90 C"
+      title: "Temperature Sensor 2",
     },
     {
-      title: "Temperature ERC",
-      value: "90 C"
+      title: "Temperature Sensor 3",
     }
   ])
   const [loading, setLoading] = useState(false);
+  const [dataY, setDataY] = useState([0, -23, -12, 2, 8, 3, 2, -4, 6, 8, -30, 2, 4, -6, 1, 10, 0, 2, 10, 2, 10, 3, 2, 2])
+  const [dataX, setDataX] = useState(["00.00", "01.00", "02.00", "03.00", "05.00", "06.00", "07.00", "08.00", "09.00", "10.00", "11.00", "12.00", "13.00", "14.00", "15.00", "16.00", "17.00", "18.00", "19.00", "20.00", "21.00", "22.00", "23.00", "24.00"])
 
   return (
     <DashboardLayout>
@@ -54,7 +53,7 @@ function Dashboard() {
                     <img src={TEMPLOGO} alt="temp icon" className={styles.iconresume} />
                     <div className={styles.resumeDesc}>
                       <p className={styles.resumeTitle}>{item.title}</p>
-                      <p className={styles.resumeValue}>{item.value}</p>
+                      <p className={styles.resumeValue}>90 <sup>o</sup>C</p>
                     </div>
                   </div>
                 </div>
@@ -63,7 +62,7 @@ function Dashboard() {
                 <img src={ERCICON} alt="temp icon" className={styles.iconresume} />
                 <div className={styles.resumeDesc}>
                   <p className={styles.resumeTitle}>Temperature ERC</p>
-                  <p className={styles.resumeValue}>-90 C</p>
+                  <p className={styles.resumeValue}>-90 <sup>o</sup>C</p>
                 </div>
               </div>
             </div>
@@ -71,7 +70,7 @@ function Dashboard() {
             <div className={styles.mainContent}>
               <div className={styles.leftMain}>
                 <div className={styles.leftMid}>
-                  <ApexChart />
+                  <ApexChart title="Statistik Temperature ERC" data={dataY} categories={dataX} />
                 </div>
                 <div className={styles.leftBottom}>
                   <h3 className={styles.titleLeftBottom}>Control Temperature</h3>
@@ -82,16 +81,18 @@ function Dashboard() {
 
                   <div className={styles.formField}>
                     <label htmlFor="whatsapp" className={styles.label}>
-                      Set Point
+                      Set
                     </label>
                   </div>
                   <div className={styles.setBoxs}>
                     <Input required type="number" className={styles.input} name="setpoint" />
-                    <button className={styles.btnSet}>Set Point</button>
+                    <p className={styles.setCelcius}><sup>o</sup>C</p>
+                    <button className={styles.btnSet}>Set</button>
+                    <button className={styles.btnSet}>Reset</button>
                   </div>
                 </div>
               </div>
-              <div className={styles.rightMain}>
+              {/* <div className={styles.rightMain}>
                 <h3 className={styles.titleLeftBottom}>Penggunaan Daya</h3>
                 <div className={styles.dayaCards}>
                   <div className={styles.rightTop}>
@@ -108,7 +109,7 @@ function Dashboard() {
                     <div className={styles.value2RightTop}>Rp. 79.000</div>
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

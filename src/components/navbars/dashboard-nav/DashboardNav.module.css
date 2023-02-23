@@ -28,6 +28,11 @@
   width: 150px;
 }
 
+.navTitle {
+  margin: 0px;
+  font-size: 18px !important;
+  font-weight: 700;
+}
 .right {
   display: flex;
   align-items: center;

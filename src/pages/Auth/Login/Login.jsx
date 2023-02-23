@@ -42,6 +42,23 @@ function Login(props) {
         email: user.email,
         token: Math.random(),
       });
+      localStorage.setItem("role", "admin");
+      message.success("Login berhasil");
+      setLoading(false);
+      props.history.push("/dashboard");
+    } else {
+      setMessageVal("Email atau password anda salah");
+      setLoading(false);
+      setOpenAlert(true);
+    }
+
+
+    if (user.email === "user@gmail.com" && user.password === "user") {
+      login({
+        email: user.email,
+        token: Math.random(),
+      });
+      localStorage.setItem("role", "user");
       message.success("Login berhasil");
       setLoading(false);
       props.history.push("/dashboard");
@@ -65,7 +82,7 @@ function Login(props) {
       <div className={styles.content}>
         <div className={styles.leftContent}>
           <img src={MAINIMAGE} alt="main image" className={styles.leftImg} />
-          <h2 className={styles.leftTitle}>Control Eco Freezer Lebih Mudah</h2>
+          <h2 className={styles.leftTitle}>Control Eco Reefer Lebih Mudah</h2>
           <p className={styles.leftDesc}>Masuk dan rasakan kemudahan dalam mengontrol eco freezer</p>
         </div>
         <div className={styles.rightContent}>
@@ -118,7 +135,7 @@ function Login(props) {
         </div>
       </div>
       <div className={styles.footer}>
-        <p className={styles.footerCopy}>&copy; 2023, Zahro Novianto</p>
+        <p className={styles.footerCopy}>&copy; Teknik Instrumentasi</p>
         <p className={styles.footerBreak}>|</p>
         <p className={styles.footerComp}>ITS X INKA</p>
       </div>

@@ -13,6 +13,9 @@ function DashboardNav() {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
 
+  const role = localStorage.getItem("role");
+  console.log(role)
+
   const _onLogout = () => {
     logout();
     message.error("Logout berhasil");
@@ -31,7 +34,7 @@ function DashboardNav() {
               <div className={styles.user}>
                 <FaUserCircle className={styles.navbarAvatar} />
                 {/* <img className={styles.navbarAvatar} src={`http://localhost:3000/${data.profileImage}`} /> */}
-                <NavDropdown className={styles.dropdownContainer} title={<span className={styles.userName}>Zahro Novianto</span>}>
+                <NavDropdown className={styles.dropdownContainer} title={<span className={styles.userName}>{role === "admin" ? "Admin" : "User"} | Zahro N...</span>}>
                   <NavDropdown.Item href="/profile">Lihat akun</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item onClick={_onLogout}>Keluar</NavDropdown.Item>

@@ -1,12 +1,12 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 const firebaseConfig = {
-  apiKey: "AIzaSyB2-prxVM3iAAkQ1dYS_opNegJsxlFgUWA",
-  authDomain: "eco-reefer.firebaseapp.com",
-  projectId: "eco-reefer",
-  storageBucket: "eco-reefer.appspot.com",
-  messagingSenderId: "732876700642",
-  appId: "1:732876700642:web:398617a611eb97c9c457bb",
+  apiKey: "AIzaSyA9BD60-t68ATViRLtIyMCKab-rJXLTdIA",
+  authDomain: "dev-eco-reefer.firebaseapp.com",
+  projectId: "dev-eco-reefer",
+  storageBucket: "dev-eco-reefer.appspot.com",
+  messagingSenderId: "690850139262",
+  appId: "1:690850139262:web:061a2eae949a1258c05c2f",
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
