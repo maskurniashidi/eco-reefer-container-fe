@@ -131,7 +131,7 @@ function Dashboard() {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 7200000);
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);

@@ -17,7 +17,7 @@ const ApexChart2 = () => {
       zoom: {
         type: "x",
         enabled: true,
-        autoScaleYaxis: true,
+        autoScaleYaxis: false,
       },
       toolbar: {
         autoSelected: "zoom",
@@ -103,7 +103,7 @@ const ApexChart2 = () => {
 
     const interval = setInterval(() => {
       fetchData();
-    }, 7200000);
+    }, 60000);
 
     return () => clearInterval(interval);
   }, []);
