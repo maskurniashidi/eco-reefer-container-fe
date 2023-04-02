@@ -122,7 +122,7 @@ function TemperatureEnergy() {
 
         const interval = setInterval(() => {
             fetchData();
-        }, 60000);
+        }, 7200000);
 
         return () => clearInterval(interval);
     }, []);
