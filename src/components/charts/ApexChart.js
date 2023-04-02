@@ -1,49 +1,68 @@
-import React, { useState } from "react";
+import React from "react";
 import ReactApexChart from "react-apexcharts";
 
-function ApexChart({ title, data, categories }) {
-  const [state, setStat] = useState({
-    series: [
-      {
-        name: title,
-        data: data,
+const ApexChart = ({ data, title }) => {
+  const [series, setSeries] = React.useState(data);
+
+  const [options, setOptions] = React.useState({
+    chart: {
+      type: "area",
+      stacked: false,
+      height: 500,
+      zoom: {
+        type: "x",
+        enabled: true,
+        autoScaleYaxis: true,
       },
-    ],
-    options: {
-      chart: {
-        height: 350,
-        type: "line",
-        zoom: {
-          enabled: false,
-        },
+      toolbar: {
+        autoSelected: "zoom",
       },
-      dataLabels: {
-        enabled: false,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    markers: {
+      size: 0,
+    },
+    title: {
+      text: title,
+      align: "left",
+    },
+    fill: {
+      type: "gradient",
+      gradient: {
+        shadeIntensity: 1,
+        inverseColors: false,
+        opacityFrom: 0.5,
+        opacityTo: 0,
+        stops: [0, 90, 100],
       },
-      stroke: {
-        curve: "straight",
-      },
+    },
+    yaxis: {
+      labels: {},
       title: {
-        text: title,
-        align: "left",
+        text: "",
       },
-      grid: {
-        row: {
-          colors: ["#f3f3f3", "transparent"], // takes an array which will be repeated on columns
-          opacity: 0.5,
-        },
+    },
+    xaxis: {
+      type: "datetime",
+    },
+    tooltip: {
+      x: {
+        format: "yyyy-mm-dd hh:mm:ss",
       },
-      xaxis: {
-        categories: categories,
+      fixed: {
+        enabled: false,
+        position: "topRight",
       },
     },
   });
 
   return (
     <div id="chart">
-      <ReactApexChart options={state.options} series={state.series} type="line" height={350} />
+      <ReactApexChart options={options} series={data} type="area" height={500} />
     </div>
   );
-}
+};
 
 export default ApexChart;

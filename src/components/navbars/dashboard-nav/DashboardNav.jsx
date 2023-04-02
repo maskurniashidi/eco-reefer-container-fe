@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import { logout } from "../../../utils/auth";
 import styles from "./DashboardNav.module.css";
 import { NavDropdown } from "react-bootstrap";
-import { message, Skeleton } from "antd";
+import { message, Skeleton, Tooltip } from "antd";
 import { FaUserCircle } from "../../../assets/assets";
-
+import { RiUserFill, RiLockPasswordFill, RiNotification3Fill } from "react-icons/ri";
 // new
 import LOGO from "../../../assets/imgs/logo-login-zahro.png"
 
@@ -31,6 +31,11 @@ function DashboardNav() {
               <img src={LOGO} alt="logo zahro" className={styles.logo} />
             </div>
             <div className={styles.right}>
+              <Link className={styles.iconUserBox} to={{ pathname: "/profile", search: "?type=notifikasi" }}>
+                <Tooltip placement="bottom" title={"Notifikasi"}>
+                  <RiNotification3Fill className={styles.iconUser} />
+                </Tooltip>
+              </Link>
               <div className={styles.user}>
                 <FaUserCircle className={styles.navbarAvatar} />
                 {/* <img className={styles.navbarAvatar} src={`http://localhost:3000/${data.profileImage}`} /> */}

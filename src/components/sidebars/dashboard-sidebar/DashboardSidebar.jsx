@@ -38,12 +38,12 @@ function DashboardSidebar() {
             {location.pathname.slice(0, 19) === "/temperature-energy" ? (
               <Link to="/temperature-energy" className={styles.linkSidebarActive}>
                 <img src={TempIconWhite} alt="icon sidebar" className={styles.iconSidebar} />
-                <h5 className={styles.textColor}>Temperature Energy</h5>
+                <h5 className={styles.textColor}>Monitoring Energi</h5>
               </Link>
             ) : (
               <Link to="/temperature-energy" className={styles.linkSidebar}>
                 <img src={TempIconBlack} alt="icon sidebar" className={styles.iconSidebar} />
-                <h5 className={styles.text}>Temperature Energy</h5>
+                <h5 className={styles.text}>Monitoring Energi</h5>
               </Link>
             )}
             {

@@ -1,0 +1,45 @@
+.wrapper {
+}
+
+.notifContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.notifItem {
+  display: flex;
+  gap: 16px;
+}
+
+.iconBox {
+  width: 75px;
+  height: 75px;
+  overflow: hidden;
+}
+
+.iconItem {
+  width: 75px;
+  height: 75px;
+}
+
+.textNotif {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin: 0px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.body {
+  margin: 0px;
+  font-size: 16px;
+}
+
+.paginationContainer {
+  display: flex;
+  justify-content: flex-end;
+}
