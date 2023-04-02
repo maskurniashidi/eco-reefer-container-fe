@@ -12,7 +12,7 @@ const ApexChart = ({ data, title }) => {
       zoom: {
         type: "x",
         enabled: true,
-        autoScaleYaxis: true,
+        autoScaleYaxis: false,
       },
       toolbar: {
         autoSelected: "zoom",
