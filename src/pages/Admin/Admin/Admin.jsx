@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./Admin.module.css";
 import DashboardLayout from "../../../layouts/dashboard-layout/DashboardLayout";
@@ -9,10 +10,34 @@ import { ToastContainer } from 'react-toastify';
 
 function Admin() {
     const [dataAdmin, setDataAdmin] = useState([
-        { userId: 1, key: 1, name: "Zahro Novianto", email: "zahro@gmail.com", phoneNumber: "6287864132080", tags: ["Admin"] },
-        { userId: 1, key: 1, name: "Admin", email: "admin@gmail.com", phoneNumber: "6287861113080", tags: ["Admin"] }
     ]);
     const [loading, setLoading] = useState(false);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                // const response = await axios.get('http://api-ecoref.project101.site/api/data-sensor');
+                const response = await axios.get('http://api-ecoref.project101.site/api/auth/users');
+                console.log(response.data)
+                var newDataTemp = [];
+                response.data.map((item) => {
+                    newDataTemp = [...newDataTemp, { key: item.id, name: item.name, email: item.email, tags: ["admin"] }]
+                })
+                setDataAdmin(newDataTemp)
+                setLoading(false)
+            } catch (error) {
+                setLoading(false)
+                console.error(error);
+            }
+        };
+
+        fetchData();
+
+        const interval = setInterval(() => {
+            fetchData();
+        }, 10000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     // table init
     const columns = [
@@ -30,11 +55,6 @@ function Admin() {
             title: "Email",
             dataIndex: "email",
             key: "email",
-        },
-        {
-            title: "No HP",
-            dataIndex: "phoneNumber",
-            key: "phoneNumber",
         },
         {
             title: "Role",
@@ -56,23 +76,23 @@ function Admin() {
                 </>
             ),
         },
-        {
-            title: "Action",
-            key: "action",
-            render: (_, record) => (
-                <Space size="middle">
-                    <Link to={`/admin/detail-admin/${record.key}`}>
-                        <AiFillEye className={styles.iconActionView} />
-                    </Link>
-                    {/* <Link to={`/admin/edit-admin/${record.key}`}>
-                        <AiFillEdit className={styles.iconActionEdit} />
-                    </Link> */}
-                    <button className={styles.btnDelete}>
-                        <AiFillDelete className={styles.iconActionDelete} />
-                    </button>
-                </Space>
-            ),
-        },
+        // {
+        //     title: "Action",
+        //     key: "action",
+        //     render: (_, record) => (
+        //         <Space size="middle">
+        //             {/* <Link to={`/admin/detail-admin/${record.key}`}>
+        //                 <AiFillEye className={styles.iconActionView} />
+        //             </Link> */}
+        //             {/* <Link to={`/admin/edit-admin/${record.key}`}>
+        //                 <AiFillEdit className={styles.iconActionEdit} />
+        //             </Link> */}
+        //             {/* <button className={styles.btnDelete}>
+        //                 <AiFillDelete className={styles.iconActionDelete} />
+        //             </button> */}
+        //         </Space>
+        //     ),
+        // },
     ];
 
 
@@ -132,7 +152,7 @@ function Admin() {
                         </div>
                     </div>
 
-                    <div className={styles.statistikContainer}>
+                    {/* <div className={styles.statistikContainer}>
                         <div className={styles.topInfo}>
                             <div className={styles.filterBox}>
                                 <div className={styles.searchContainer}>
@@ -143,7 +163,7 @@ function Admin() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div className={styles.tableContainerDoctor}>
                         <Table columns={columns} dataSource={dataAdmin} />
                     </div>

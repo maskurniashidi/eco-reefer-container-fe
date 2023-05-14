@@ -5,10 +5,10 @@ import { Link, useLocation, useHistory } from "react-router-dom";
 import Typography from "@mui/material/Typography";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import ReactLoading from "react-loading";
-import { Input } from "antd";
+import { Input, message } from "antd";
 import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
 import { ToastContainer, toast } from 'react-toastify';
-
+import axios from "axios";
 
 function AddAdmin(props) {
     const [loading, setLoading] = useState(false);
@@ -33,6 +33,42 @@ function AddAdmin(props) {
             [event.target.name]: event.target.value,
         });
     };
+
+    const addAdmin = () => {
+        setLoading(true)
+        let dataBody = JSON.stringify({
+            "name": user.name,
+            "email": user.email,
+            "password": user.password
+        });
+
+        let config = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'http://api-ecoref.project101.site/api/auth/register',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: dataBody
+        };
+
+        axios.request(config)
+            .then((response) => {
+                console.log(JSON.stringify(response.data));
+                message.success("Menambahkan akun berhasil")
+                setTimeout(() => {
+                    window.location.reload()
+                }, 2000);
+                setLoading(false)
+
+            })
+            .catch((error) => {
+                console.log(error);
+                setLoading(false)
+                message.error("Menambahkan akun gagal, pastikan data terisi semua atau belum pernah digunakan")
+            });
+
+    }
 
     return (
         <DashboardLayout>
@@ -79,22 +115,10 @@ function AddAdmin(props) {
                             <Input required type="email" name="email" value={user.email} onChange={handleChange} className={styles.formControl} />
                         </div>
                         <div className={styles.formGroup}>
-                            <label htmlFor="whatsapp" className={styles.formLabel}>
-                                No Whatsapp
-                            </label>
-                            <Input addonBefore="+62" required type="number" name="phoneNumber" value={user.phoneNumber} onChange={handleChange} className={styles.formControl} />
-                        </div>
-                        <div className={styles.formGroup}>
                             <label htmlFor="password" className={styles.formLabel}>
                                 Password
                             </label>
                             <Input.Password required name="password" value={user.password} onChange={handleChange} className={styles.formControl} iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)} />
-                        </div>
-                        <div className={styles.formGroup}>
-                            <label htmlFor="password" className={styles.formLabel}>
-                                Konfirmasi Password
-                            </label>
-                            <Input.Password required name="confirmPassword" value={user.confirmPassword} onChange={handleChange} className={styles.formControl} iconRender={(visible) => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)} />
                         </div>
                         {/* <div className={styles.msgPwError}>halo</div> */}
                         <div className={styles.btnBox}>
@@ -103,7 +127,7 @@ function AddAdmin(props) {
                                     <ReactLoading className={styles.loadingConfirm} type={props.balls} color={props.color} height={20} width={30} />
                                 </button>
                             ) : (
-                                <button className={styles.btnAdd}>
+                                <button onClick={addAdmin} className={styles.btnAdd}>
                                     Tambah Admin
                                 </button>
                             )}

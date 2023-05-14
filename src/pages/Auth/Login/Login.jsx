@@ -6,7 +6,7 @@ import ReactLoading from "react-loading";
 import { Input, message, Alert } from "antd";
 import HEADINGLOGO from "../../../assets/imgs/logo-login-zahro.png"
 import MAINIMAGE from "../../../assets/imgs/header-login-zahro.png"
-
+import axios from "axios";
 
 
 function Login(props) {
@@ -37,36 +37,38 @@ function Login(props) {
 
   const handleLogin = () => {
     setLoading(true);
-    if (user.email === "admin@gmail.com" && user.password === "admin") {
-      login({
-        email: user.email,
-        token: Math.random(),
-      });
-      localStorage.setItem("role", "admin");
-      message.success("Login berhasil");
-      setLoading(false);
-      props.history.push("/dashboard");
-    } else {
-      setMessageVal("Email atau password anda salah");
-      setLoading(false);
-      setOpenAlert(true);
-    }
+    let data = JSON.stringify({
+      "email": user.email,
+      "password": user.password
+    });
 
+    let config = {
+      method: 'post',
+      url: 'http://api-ecoref.project101.site/api/auth/login',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      data: data
+    };
 
-    if (user.email === "user@gmail.com" && user.password === "user") {
-      login({
-        email: user.email,
-        token: Math.random(),
+    axios.request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+        login({
+          email: user.email,
+          token: Math.random(),
+        });
+        localStorage.setItem("role", "admin");
+        message.success("Login berhasil");
+        setLoading(false);
+        props.history.push("/dashboard");
+      })
+      .catch((error) => {
+        console.log(error);
+        setMessageVal("Email atau password anda salah");
+        setLoading(false);
+        setOpenAlert(true);
       });
-      localStorage.setItem("role", "user");
-      message.success("Login berhasil");
-      setLoading(false);
-      props.history.push("/dashboard");
-    } else {
-      setMessageVal("Email atau password anda salah");
-      setLoading(false);
-      setOpenAlert(true);
-    }
   };
 
   //! --------------------------------------

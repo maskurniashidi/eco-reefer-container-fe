@@ -35,7 +35,7 @@ function DashboardSidebar() {
                 <h5 className={styles.text}>Dashboard</h5>
               </Link>
             )}
-            {location.pathname.slice(0, 19) === "/temperature-energy" ? (
+            {/* {location.pathname.slice(0, 19) === "/temperature-energy" ? (
               <Link to="/temperature-energy" className={styles.linkSidebarActive}>
                 <img src={TempIconWhite} alt="icon sidebar" className={styles.iconSidebar} />
                 <h5 className={styles.textColor}>Monitoring Energi</h5>
@@ -45,7 +45,7 @@ function DashboardSidebar() {
                 <img src={TempIconBlack} alt="icon sidebar" className={styles.iconSidebar} />
                 <h5 className={styles.text}>Monitoring Energi</h5>
               </Link>
-            )}
+            )} */}
             {
               role === "admin" &&
               <div>
@@ -62,7 +62,7 @@ function DashboardSidebar() {
                 )}
               </div>
             }
-            {
+            {/* {
               role === "admin" &&
               <div>
                 {location.pathname.slice(0, 5) === "/user" ? (
@@ -77,7 +77,7 @@ function DashboardSidebar() {
                   </Link>
                 )}
               </div>
-            }
+            } */}
 
           </div>
         )

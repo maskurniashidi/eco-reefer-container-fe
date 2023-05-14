@@ -13,14 +13,14 @@ function Profile() {
       <div className={styles.container}>
         <div className={styles.left}>
           <div className={styles.menuProfile}>
-            <Link to="/profile" className={styles.menuItem}>
+            {/* <Link to="/profile" className={styles.menuItem}>
               <RiUserFill className={styles.menuIcon} />
               <p className={styles.menuText}>Akun Saya</p>
             </Link>
             <Link to={{ pathname: "/profile", search: "?type=reset-password" }} className={styles.menuItem}>
               <RiLockPasswordFill className={styles.menuIcon} />
               <p className={styles.menuText}>Ubah Password</p>
-            </Link>
+            </Link> */}
             <Link to={{ pathname: "/profile", search: "?type=notifikasi" }} className={styles.menuItem}>
               <RiNotification3Fill className={styles.menuIconNotification} />
               <p className={styles.menuText}>Notifikasi</p>
@@ -28,7 +28,7 @@ function Profile() {
           </div>
         </div>
         <div className={styles.right}>
-          {location.search === "" && (
+          {/* {location.search === "" && (
             <>
               <MyAccount />
             </>
@@ -37,7 +37,7 @@ function Profile() {
             <>
               <ResetPassword />
             </>
-          )}
+          )} */}
           {location.search === "?type=notifikasi" && (
             <>
               <Notification />
